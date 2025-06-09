@@ -14,11 +14,19 @@ public class Cliente {
 
     private Integer idUsuario;
 
-    private String nombreCompleto;
+    private String pNombre;
+
+    private String sNombre;
+
+    private String pApellido;
+
+    private String sApellido;
 
     private String rut;
 
     private String direccion;
 
     private String telefono;
+
+    private Integer idComuna;
 }

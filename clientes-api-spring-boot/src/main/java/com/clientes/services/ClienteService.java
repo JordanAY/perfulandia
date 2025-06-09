@@ -36,10 +36,14 @@ public class ClienteService {
     public Optional<ClienteDTO> actualizar(Integer id, ClienteDTO dto) {
         return repository.findById(id).map(cliente -> {
             cliente.setIdUsuario(dto.getIdUsuario());
-            cliente.setNombreCompleto(dto.getNombreCompleto());
+            cliente.setPNombre(dto.getPNombre());
+            cliente.setSNombre(dto.getSNombre());
+            cliente.setPApellido(dto.getPApellido());
+            cliente.setSApellido(dto.getSApellido());
             cliente.setRut(dto.getRut());
             cliente.setDireccion(dto.getDireccion());
             cliente.setTelefono(dto.getTelefono());
+            cliente.setIdComuna(dto.getIdComuna());
             return toDTO(repository.save(cliente));
         });
     }
@@ -56,11 +60,15 @@ public class ClienteService {
     private ClienteDTO toDTO(Cliente cliente) {
         ClienteDTO dto = new ClienteDTO();
         dto.setIdCliente(cliente.getIdCliente());
+        dto.setPNombre(cliente.getPNombre());
+        dto.setSNombre(cliente.getSNombre());
+        dto.setPApellido(cliente.getPApellido());
+        dto.setSApellido(cliente.getSApellido());
         dto.setIdUsuario(cliente.getIdUsuario());
-        dto.setNombreCompleto(cliente.getNombreCompleto());
         dto.setRut(cliente.getRut());
         dto.setDireccion(cliente.getDireccion());
         dto.setTelefono(cliente.getTelefono());
+        dto.setIdComuna(cliente.getIdComuna());
         return dto;
     }
 
@@ -68,10 +76,14 @@ public class ClienteService {
         Cliente cliente = new Cliente();
         cliente.setIdCliente(dto.getIdCliente());
         cliente.setIdUsuario(dto.getIdUsuario());
-        cliente.setNombreCompleto(dto.getNombreCompleto());
+        cliente.setPNombre(dto.getPNombre());
+        cliente.setSNombre(dto.getSNombre());
+        cliente.setPApellido(dto.getPApellido());
+        cliente.setSApellido(dto.getSApellido());
         cliente.setRut(dto.getRut());
         cliente.setDireccion(dto.getDireccion());
         cliente.setTelefono(dto.getTelefono());
+        cliente.setIdComuna(dto.getIdComuna());
         return cliente;
     }
 }
